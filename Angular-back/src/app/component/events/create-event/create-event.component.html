@@ -1,0 +1,117 @@
+<div class="d-flex">
+  <button routerLink="/events" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="main_block">
+  <div id="title" class="h2 text-white">Création d'event</div>
+
+  <div>
+    <form [formGroup]="eventForm">
+      <div class="left-side-form">
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Intitulé</mat-label>
+            <input formControlName="title" matInput type="text" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Description</mat-label>
+            <input formControlName="description" matInput type="text" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Date de début</mat-label>
+            <input formControlName="startDate" matInput type="date"  class="text-white">
+            <mat-hint> hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Date de fin</mat-label>
+            <input formControlName="endDate" matInput type="date"  class="text-white">
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="fill">
+            <mat-label class="text-white">Type d'évenement</mat-label>
+            <mat-select formControlName="eventType">
+              <mat-option value="ECOLOGICAL">Ecologique</mat-option>
+              <mat-option value="HUMANITARIAN">Humanitaire</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="right-side-form">
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Nombre de participant minimal</mat-label>
+            <input formControlName="minParticipant" matInput type="number" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Nombre de participant maximal</mat-label>
+            <input formControlName="maxParticipant" matInput type="number" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="legacy">
+          <mat-label class="text-white">Number</mat-label>
+          <input type="text"
+                 matInput
+                 (input)="filter($event)"
+                 formControlName="address"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options " [value]="option" (click)="setAddress(option)">
+              {{option?.properties?.label}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Code postal</mat-label>
+            <input formControlName="zip" matInput type="text" readonly >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Ville</mat-label>
+            <input formControlName="city" matInput type="text" readonly>
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="submit_button">
+        <button (click)="onSubmit()" class="btn mt-5" style="background-color: #7386D5; color: white" [disabled]="!eventForm.valid">Créer l'event</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

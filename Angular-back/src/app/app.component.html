@@ -1,0 +1,69 @@
+<div class="wrapper w-100">
+  <!-- Sidebar -->
+  <nav id="sidebar" class="active">
+
+    <div id="dismiss" (click)="Dismiss()">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+      <h1 class="w-100 text-center" style="margin-left: -10px; margin-bottom: -10px">Admin Panel</h1>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li [ngClass] = "{'active' : this.router.url == '/'}">
+        <a routerLink="" type="button" (click)="isGoingToIdentification = false">Accueil</a>
+      </li>
+      <li [ngClass] = "{'active' : this.router.url == '/products' || this.router.url == '/create-product'}">
+        <a routerLink="products" type="button" (click)="isGoingToIdentification = false">Produits</a>
+      </li>
+      <li [ngClass] = "{'active' : this.router.url == '/auction-sales' || this.router.url == '/create-sale'}">
+        <a routerLink="auction-sales" type="button" (click)="isGoingToIdentification = false">Enchères</a>
+      </li>
+      <li [ngClass] = "{'active' : this.router.url == '/events' || this.router.url == '/create-event'}">
+        <a routerLink="events" type="button" (click)="isGoingToIdentification = false">Evènements</a>
+      </li>
+      <li [ngClass] = "{'active' : this.router.url == '/users' || this.router.url == '/create-user'}">
+        <a routerLink="users" type="button" (click)="isGoingToIdentification = false">Utilisateurs</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content" class="w-100">
+
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #7386D5">
+      <div class="row w-100">
+        <div class="col-4">
+          <button type="button" id="sidebarCollapse" class="btn btn-light mx-3"  (click)="Collapse()">
+            <i class="fas fa-align-left"></i>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="col-4" style="display: block; text-align: center">
+          <p class="text-white h-100">Together We Are One</p>
+        </div>
+        <div class="col-4" style="text-align: right">
+          <button *ngIf="authService.isConnected()" (click)="logout()" class="btn btn-light">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div *ngIf="!authService.isConnected() && !isGoingToIdentification" class="text-center d-flex h-75">
+      <div class="mx-auto my-auto">
+        <h2 class="my-5">
+          Veuillez vous connecter.
+        </h2>
+
+        <button (click)="goToAuth()" class="btn btn-light px-5 py-3 text-white mx-3" style="background-color: #7386D5">
+          Connexion
+        </button>
+      </div>
+    </div>
+
+    <router-outlet *ngIf="authService.isConnected() || isGoingToIdentification"></router-outlet>
+  </div>
+</div>
+

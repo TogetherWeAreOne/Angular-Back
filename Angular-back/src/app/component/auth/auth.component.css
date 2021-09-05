@@ -1,0 +1,50 @@
+.main_block {
+  width: 100%;
+  display: flex;
+  vertical-align: middle;
+  /*background-color: cadetblue;*/
+  height: 70vh;
+  padding: 50px;
+}
+
+.central-block {
+  display: block;
+  border-radius: 10px;
+  width: 40%;
+  padding: 10px;
+  margin: auto;
+  background-color: #7386D5;
+}
+
+.central-block h2 {
+  text-align: center;
+}
+
+.central-block button {
+  display: block;
+  margin: 20px auto 10px;
+}
+
+form div {
+  margin-top: 20px;
+}
+
+form .form-goup {
+  width: 60%;
+  margin-left: 20%;
+}
+
+form .form-goup label {
+  /*font-size: 1.5em;*/
+}
+
+.label_input {
+  display: block;
+}
+
+.error {
+  border-radius: 10px;
+  background-color: rgba(255, 89, 89, 0.75);
+  padding: 10px;
+  font-size: 1.5em;
+}

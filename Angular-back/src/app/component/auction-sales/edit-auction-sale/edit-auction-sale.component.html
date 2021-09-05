@@ -1,0 +1,43 @@
+<div class="d-flex">
+  <button routerLink="/auction-sales" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="main_block">
+  <div id="title" class="text-white h2">Modification d'une Vente</div>
+
+  <div>
+    <form [formGroup]="updateAuctionForm">
+
+      <div class="main-side-form">
+        <div class="form-goup">
+          <label class="text-white">Titre :</label>
+          <input class="form-control" formControlName="name" type="text" value="{{auctionToUpdate?.name}}">
+          <mat-hint> hint </mat-hint>
+        </div>
+
+        <div class="form-goup">
+          <label class="text-white">Description :</label>
+          <input class="form-control" type="text" formControlName="description" value="{{auctionToUpdate?.description}}">
+          <mat-hint> hint </mat-hint>
+        </div>
+
+        <div class="form-goup">
+          <label class="text-white">Catégorie du Produit:</label>
+          <select class="form-select" name="category" id="category" formControlName="category" [value]="selectedCategory">
+            <option value=""></option>
+            <option *ngFor="let category of auctionSaleCategories;" value="{{category.name}}">{{category.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <button (click)="onSubmit()" class="btn btn-light">Modifier le produit</button>
+
+    </form>
+  </div>
+</div>
+
+

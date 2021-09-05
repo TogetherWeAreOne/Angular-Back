@@ -1,0 +1,57 @@
+<div class="d-flex">
+  <button routerLink="/products" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="main_block">
+  <div id="title" class="h2 text-white">Modification produit</div>
+
+  <div>
+    <form [formGroup]="updateProductForm">
+
+      <div class="main-side-form">
+        <div class="form-goup">
+          <label class="label_input text-white">Nom :</label>
+          <input class="form-control" formControlName="name" id="name" type="text" value="{{productToUpdate?.name}}">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Description :</label>
+          <input class="form-control" formControlName="description" id="description" type="text" value="{{productToUpdate?.description}}">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Prix :</label>
+          <input class="form-control" formControlName="price" id="price" type="number" value="{{productToUpdate?.price}}">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Catégorie produit :</label>
+          <select class="form-control" formControlName="category">
+            <option *ngFor="let category of productCategories;" [value]="category.name" [selected]="category.name === productToUpdate?.category?.name"> {{category.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Quantité :</label>
+          <input class="form-control" formControlName="quantity" id="quantity" type="text" [defaultValue]=productToUpdate?.quantity>
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Négociable :</label>
+          <select class="form-select" formControlName="negotiable" >
+            <option value="true" [selected]="productToUpdate?.negotiable === 'TRUE'"> Oui </option>
+            <option value="false" [selected]="productToUpdate?.negotiable === 'FALSE'"> Non </option>
+          </select>
+        </div>
+      </div>
+
+      <button (click)="onSubmit()" class="btn mt-5" style="background-color: #7386D5; color: white"> Modifier le produit</button>
+
+    </form>
+  </div>
+</div>
+

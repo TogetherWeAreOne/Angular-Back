@@ -1,0 +1,51 @@
+<div class="d-flex">
+  <button routerLink="/auction-sales" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="main_block">
+  <div id="title" class="h2 text-white">Création de Vente</div>
+
+  <div>
+    <form [formGroup]="auctionSaleForm">
+
+      <div class="main-side-form">
+        <div class="form-goup">
+          <label class="label_input text-white">Nom :</label>
+          <input class="form-control" formControlName="name" id="name" type="text">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Description :</label>
+          <input class="form-control" formControlName="description" id="description" type="text">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Prix de départ :</label>
+          <input class="form-control" formControlName="startPrice" id="price" type="number">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Catégorie de l'enchère :</label>
+          <input class="form-control" formControlName="category" id="categoryProduct" type="text">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Date de fin :</label>
+          <input class="form-control" formControlName="endDate" type="date">
+        </div>
+
+        <div class="form-goup">
+          <label class="label_input text-white">Image :</label>
+          <input class="form-control"  type="file" multiple (change)="selectImages($event)">
+        </div>
+      </div>
+
+      <button (click)="onSubmit()" class="btn mt-5" style="background-color: #7386D5; color: white"> Créer le produit</button>
+
+    </form>
+  </div>
+</div>

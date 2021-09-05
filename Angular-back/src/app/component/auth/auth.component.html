@@ -1,0 +1,25 @@
+<div class="main_block">
+
+  <div class="central-block">
+    <h2 class="text-white"> CONNEXION </h2>
+
+    <form [formGroup]="loginForm">
+      <div class="form-goup">
+        <label class="label_input text-white">
+          Email :
+        </label>
+        <input class="form-control" formControlName="email" id="email" type="text">
+      </div>
+
+      <div class="form-goup">
+        <label class="label_input text-white">Mot de passe : </label>
+        <input class="form-control" formControlName="password" id="password" type="password">
+        <div *ngIf="this.connectionError" class="error "> L'email ou le mot de passe est incorrect !</div>
+      </div>
+
+
+      <button (click)="onSubmit()" [disabled]="!loginForm.valid" class="btn btn-danger px-5">Se connecter</button>
+    </form>
+    <a routerLink="/register" class="text-center w-100 text-white-50" style="display: block; margin: 20px auto 10px;" type="button">Créer un compte</a>
+  </div>
+</div>

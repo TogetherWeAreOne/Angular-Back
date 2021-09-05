@@ -1,0 +1,71 @@
+.main_block {
+  width: 100%;
+  display: flex;
+  vertical-align: middle;
+  height: 70vh;
+  padding: 50px;
+}
+
+.central-block {
+  display: block;
+  border-radius: 10px;
+  width: 45%;
+  padding: 10px;
+  margin: auto;
+
+  background-color: #7386D5;
+}
+
+.central-block h2 {
+  text-align: center;
+}
+
+.central-block button {
+  margin: auto;
+}
+
+
+form {
+  height: 50%;
+}
+
+form div {
+
+}
+
+form .form-goup {
+  width: 60%;
+
+  height: 15%;
+}
+
+form .form-goup label {
+  font-size: 1.5em;
+}
+
+.label_input {
+  display: block;
+}
+
+.left-side-form {
+  float: left;
+  width: 49%;
+  height: 90%;
+  margin-bottom: 30px;
+  padding-left: 60px;
+}
+
+.right-side-form {
+  float: right;
+  width: 50%;
+  height: 90%;
+  margin-bottom: 30px;
+  padding-left: 30px;
+}
+
+.submit_button{
+  display: inline-block;
+  height: 10%;
+  width: 100%;
+  text-align: center;
+}

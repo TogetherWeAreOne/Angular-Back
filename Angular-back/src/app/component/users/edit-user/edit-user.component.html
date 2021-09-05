@@ -1,0 +1,78 @@
+<div class="d-flex">
+  <button routerLink="/users" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="container p-5 rounded-3" style="background-color: #7386D5">
+  <form [formGroup]="updateProductForm">
+    <div class="form-group">
+      <label class="text-white">E-Mail</label>
+      <input class="form-control" type="email" value="{{this.user.email}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Prénom</label>
+      <input class="form-control" type="text" value="{{this.user.firstname}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Nom de Famille</label>
+      <input class="form-control" type="text" value="{{this.user.lastname}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Pseudo</label>
+      <input class="form-control" type="text" value="{{this.user.pseudo}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Role</label>
+      <input class="form-control" type="text" value="{{this.user.role}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Date d'Anniversaire</label>
+      <input class="form-control" type="date" value="{{this.user.birthdate | date}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Adresse</label>
+      <input class="form-control" type="text" value="{{this.user.address}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Ville</label>
+      <input class="form-control" type="text" value="{{this.user.city}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Code  Postal</label>
+      <input class="form-control" type="text" value="{{this.user.zip}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">N° Téléphone</label>
+      <input class="form-control" type="tel" value="{{this.user.phone}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Certifié</label>
+      <input class="form-control" type="text" value="{{this.user.certified}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Longitude</label>
+      <input class="form-control" type="text" value="{{this.user.longitude}}">
+    </div>
+
+    <div class="form-group">
+      <label class="text-white">Latitude</label>
+      <input class="form-control" type="text" value="{{this.user.latitude}}">
+    </div>
+
+    <button (click)="onSubmit()" class="btn mt-5" style="background-color: #7386D5; color: white"> Modifier l'utilisateur'</button>
+  </form>
+</div>

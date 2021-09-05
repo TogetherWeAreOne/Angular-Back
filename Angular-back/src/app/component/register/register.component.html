@@ -1,0 +1,131 @@
+<div class="main_block">
+
+  <div class="central-block">
+    <h2> INSCRIPTION </h2>
+
+    <!-- check autofill pour changer le background coulor !! -->
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="left-side-form">
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Email</mat-label>
+            <input formControlName="email" matInput placeholder="Email" type="text">
+            <mat-hint>hint</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Mot de passe</mat-label>
+            <input formControlName="password" matInput placeholder="Votre mot de passe" type="password" >
+          </mat-form-field>
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)"><p class="text-wrap m-0 text-danger">Le mot de passe doit contenir:<br>- Entre 8 et 30 caractères<br>- Une
+            majuscule<br>- Une minuscule<br>- Un caractère spécial</p></div>
+          </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Confirmation mot de passse</mat-label>
+            <input formControlName="confPassword" matInput placeholder="Confirmez votre mot de passe" type="password" >
+            <mat-hint *ngIf="password !== confPassword && (confPassword?.dirty || confPassword?.touched) "> La confirmation de mot de passe ne correspond pas au mot de passe </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Nom</mat-label>
+            <input formControlName="lastname" matInput placeholder="Nom" type="text" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Prénom</mat-label>
+            <input formControlName="firstname" matInput placeholder="Prénom" type="text" >
+            <mat-hint>hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Pseudo</mat-label>
+            <input formControlName="pseudo" matInput placeholder="Pseudo" type="text" >
+            <mat-hint> hint </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="right-side-form">
+        <div class="form-goup">
+          <mat-form-field appearance="fill">
+            <mat-label class="text-white">Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="USER"> Utilisateur </mat-option>
+              <mat-option value="PRO"> Professionnel </mat-option>
+              <mat-option value="ORGANISATION"> Organisation </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="fill">
+            <mat-label class="text-white">Date de naissance</mat-label>
+            <input matInput formControlName="birthdate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Number</mat-label>
+            <input type="text"
+                   placeholder="Adresse"
+                   matInput
+                   (input)="filter($event)"
+                   formControlName="address"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options " [value]="option" (click)="setAddress(option)">
+                {{option?.properties?.label}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Code postal</mat-label>
+            <input formControlName="zip" matInput placeholder="zip" type="text" >
+            <mat-hint> hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Pays</mat-label>
+            <input formControlName="country" matInput value="France" type="text" >
+            <mat-hint> hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-goup">
+          <mat-form-field appearance="legacy">
+            <mat-label class="text-white">Téléphone</mat-label>
+            <input formControlName="phone" matInput value="France" type="text" >
+            <mat-hint> hint </mat-hint>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="submit_button">
+        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-danger px-5">S'inscrire</button>
+      </div>
+    </form>
+    <a routerLink="/auth" class="text-center w-100 text-white-50" style="display: block; margin: 20px auto 10px;" type="button">Se connecter</a>
+  </div>
+</div>

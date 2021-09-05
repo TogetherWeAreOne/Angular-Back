@@ -1,0 +1,54 @@
+<div class="d-flex">
+  <button routerLink="/events" class="m-3 btn btn-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+      <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="main_block">
+  <div id="title" class="h2 text-white">Modification évènement</div>
+
+  <div>
+    <form [formGroup]="updateEventForm">
+
+      <div class="main-side-form">
+        <div class="form-goup">
+          <label class="text-white">Intitulé</label>
+          <input type="text" class="form-control" formControlName="name" id="name" value="{{eventToUpdate?.title}}">
+          <mat-hint>hint </mat-hint>
+        </div>
+
+        <div class="form-goup">
+          <label class="text-white">Description :</label>
+          <input type="text" class="form-control" formControlName="description" value="{{eventToUpdate?.description}}">
+          <mat-hint>hint </mat-hint>
+        </div>
+
+        <div class="form-goup">
+          <label class="text-white">Type d'évènement :</label>
+          <select formControlName="eventType" name="eventType" id="eventType" class="form-select" [value]="selectedType">
+            <option value="HUMANITARIAN">Humanitaire</option>
+            <option value="ECOLOGICAL">Ecologique</option>
+          </select>
+        </div>
+
+        <div class="form-goup mt-3">
+          <label class="text-white">Nombre de participant minimal</label>
+          <input type="number" class="form-control" formControlName="minParticipant" value="{{eventToUpdate?.minParticipant}}">
+          <mat-hint>hint </mat-hint>
+        </div>
+
+        <div class="form-goup">
+          <label class="text-white">Nombre de participant maximal</label>
+          <input type="number" class="form-control" formControlName="maxParticipant" value="{{eventToUpdate?.maxParticipant}}">
+          <mat-hint>hint </mat-hint>
+        </div>
+      </div>
+
+      <button (click)="onSubmit()" type="submit" class="btn btn-light"> Modifier l'évènement</button>
+
+    </form>
+
+  </div>
+</div>
